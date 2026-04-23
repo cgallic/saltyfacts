@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#02111a" />
+<title>Salty Facts — weird ocean stuff that broke your brain</title>
+<meta name="description" content="The ocean is deeply strange. Bookmarked picks for the curious: gear, books, apps, and discounts for ocean obsessives." />
+<meta property="og:title" content="Salty Facts" />
+<meta property="og:description" content="Weird ocean stuff you came here to see." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://saltyfacts.com" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%9A%3C/text%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          abyss: '#02111a',
+          deep:  '#07304a',
+          reef:  '#0a4a6b',
+          foam:  '#e9f4f8',
+          kelp:  '#1f7a5c',
+          salt:  '#ffd166',
+          coral: '#ff6b6b',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #02111a; color: #e9f4f8; }
+  .text-display { font-family: 'Space Grotesk', system-ui, sans-serif; }
+  .noise { background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px); background-size: 3px 3px; }
+  .wave-divider { aspect-ratio: 900/60; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 60' preserveAspectRatio='none'><path d='M0,30 C150,60 350,0 500,30 C650,60 800,0 900,30 L900,60 L0,60 Z' fill='%2302111a'/></svg>") no-repeat center / 100% 100%; }
+  .card-hover { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .card-hover:hover { transform: translateY(-2px); border-color: #ffd166; box-shadow: 0 10px 30px rgba(255,209,102,.12); }
+  .chip { background: rgba(255,209,102,.12); color: #ffd166; border: 1px solid rgba(255,209,102,.25); }
+  .fact-num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+</style>
+
+<!-- PostHog Analytics -->
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init me ss identify alias people set set_once register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
+    api_host: 'https://us.i.posthog.com',
+    defaults: '2026-01-30'
+});
+</script>
+</head>
+<body class="noise selection:bg-salt selection:text-abyss">
+
+<!-- HERO -->
+<header class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-deep via-abyss to-abyss pointer-events-none"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(10,74,107,.7),transparent_60%)] pointer-events-none"></div>
+
+  <div class="relative max-w-3xl mx-auto px-5 pt-10 pb-14 sm:pt-16 sm:pb-20">
+    <div class="flex items-center gap-2 text-xs sm:text-sm tracking-widest uppercase text-salt/80 mb-6">
+      <span class="inline-block w-6 h-[2px] bg-salt/70"></span>
+      <span>salty facts</span>
+    </div>
+
+    <h1 class="text-display text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5">
+      The ocean is <span class="text-salt">deeply</span> strange.
+      <br class="hidden sm:block" />
+      <span class="text-foam/80">You came here for the weird stuff.</span>
+    </h1>
+
+    <p class="text-lg sm:text-xl text-foam/70 mb-8 max-w-xl">
+      Handpicked gear, books and apps for people who can't stop thinking about octopuses, sharks and the abyss.
+    </p>
+
+    <div class="flex flex-wrap gap-3">
+      <a href="#picks" data-ph-evt="hero_cta" class="inline-flex items-center gap-2 rounded-full bg-salt text-abyss font-semibold px-5 py-3 hover:bg-yellow-300 transition">
+        See the picks
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#facts" data-ph-evt="hero_facts" class="inline-flex items-center gap-2 rounded-full border border-foam/20 text-foam/90 font-medium px-5 py-3 hover:border-salt/50 hover:text-salt transition">
+        10 weirdest facts
+      </a>
+    </div>
+
+    <div class="mt-10 flex items-center gap-4 text-xs text-foam/50">
+      <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-kelp"></span> Updated weekly</span>
+      <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-salt"></span> Curated, not auto-spammed</span>
+    </div>
+  </div>
+
+  <div class="wave-divider"></div>
+</header>
+
+<!-- EMAIL CAPTURE STRIP -->
+<section class="bg-reef/30 border-y border-foam/10">
+  <div class="max-w-3xl mx-auto px-5 py-8 flex flex-col sm:flex-row sm:items-center gap-4">
+    <div class="flex-1">
+      <p class="text-display font-semibold text-lg sm:text-xl">Weird fact of the week, straight to your inbox.</p>
+      <p class="text-sm text-foam/60">No spam. One short email. Unsubscribe anytime.</p>
+    </div>
+    <form
+      id="email-top"
+      action="https://formspree.io/f/REPLACE_ME"
+      method="POST"
+      class="flex gap-2 min-w-0 sm:min-w-[320px]"
+      onsubmit="posthog.capture('email_submit', { location: 'top' })">
+      <input type="email" name="email" required placeholder="you@domain.com"
+             class="flex-1 min-w-0 rounded-lg bg-abyss border border-foam/20 text-foam px-3 py-2.5 placeholder:text-foam/40 focus:outline-none focus:border-salt" />
+      <button type="submit" class="rounded-lg bg-salt text-abyss font-semibold px-4 py-2.5 hover:bg-yellow-300 transition whitespace-nowrap">Get it</button>
+    </form>
+  </div>
+</section>
+
+<!-- TOP PICKS -->
+<section id="picks" class="relative">
+  <div class="max-w-5xl mx-auto px-5 py-14 sm:py-20">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-salt/80 mb-2">the picks</p>
+        <h2 class="text-display text-3xl sm:text-4xl font-bold">Stuff we'd actually buy.</h2>
+      </div>
+      <span class="chip text-xs px-3 py-1 rounded-full hidden sm:inline-block">affiliate · transparent</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+
+      <!-- Card 1: Mobile game CPI -->
+      <a href="REPLACE_OGADS_SHARK_GAME_URL" target="_blank" rel="noopener sponsored"
+         data-ph-evt="pick_click" data-ph-label="shark_game"
+         class="card-hover group rounded-2xl bg-reef/20 border border-foam/10 p-5 block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip text-[11px] px-2 py-0.5 rounded-full">free · mobile game</span>
+          <span class="text-xs text-foam/50">#1</span>
+        </div>
+        <div class="text-5xl mb-3">🦈</div>
+        <h3 class="text-display font-semibold text-lg mb-1 group-hover:text-salt transition">Shark Survival (free install)</h3>
+        <p class="text-sm text-foam/60 mb-4">Play as a great white. Eat everything. Actually fun. Free on Android + iOS.</p>
+        <span class="inline-flex items-center gap-1 text-salt font-semibold text-sm">Play free →</span>
+      </a>
+
+      <!-- Card 2: Amazon Associates - Octopus book -->
+      <a href="REPLACE_AMAZON_OCTOPUS_BOOK_URL" target="_blank" rel="noopener sponsored"
+         data-ph-evt="pick_click" data-ph-label="octopus_book"
+         class="card-hover group rounded-2xl bg-reef/20 border border-foam/10 p-5 block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip text-[11px] px-2 py-0.5 rounded-full">book</span>
+          <span class="text-xs text-foam/50">#2</span>
+        </div>
+        <div class="text-5xl mb-3">🐙</div>
+        <h3 class="text-display font-semibold text-lg mb-1 group-hover:text-salt transition">Other Minds — Peter Godfrey-Smith</h3>
+        <p class="text-sm text-foam/60 mb-4">If octopuses feel like aliens it's because they basically are. The definitive book.</p>
+        <span class="inline-flex items-center gap-1 text-salt font-semibold text-sm">See on Amazon →</span>
+      </a>
+
+      <!-- Card 3: Temu referral -->
+      <a href="REPLACE_TEMU_REFERRAL_URL" target="_blank" rel="noopener sponsored"
+         data-ph-evt="pick_click" data-ph-label="temu_ocean"
+         class="card-hover group rounded-2xl bg-reef/20 border border-foam/10 p-5 block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip text-[11px] px-2 py-0.5 rounded-full">under $5 · ships worldwide</span>
+          <span class="text-xs text-foam/50">#3</span>
+        </div>
+        <div class="text-5xl mb-3">🐚</div>
+        <h3 class="text-display font-semibold text-lg mb-1 group-hover:text-salt transition">Ocean-themed finds on Temu</h3>
+        <p class="text-sm text-foam/60 mb-4">Shark-tooth pendants, coral decor, phone cases. Cheap, weird, ships global.</p>
+        <span class="inline-flex items-center gap-1 text-salt font-semibold text-sm">Browse picks →</span>
+      </a>
+
+      <!-- Card 4: Aquarium starter -->
+      <a href="REPLACE_AMAZON_AQUARIUM_KIT_URL" target="_blank" rel="noopener sponsored"
+         data-ph-evt="pick_click" data-ph-label="aquarium_kit"
+         class="card-hover group rounded-2xl bg-reef/20 border border-foam/10 p-5 block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip text-[11px] px-2 py-0.5 rounded-full">starter</span>
+          <span class="text-xs text-foam/50">#4</span>
+        </div>
+        <div class="text-5xl mb-3">🐠</div>
+        <h3 class="text-display font-semibold text-lg mb-1 group-hover:text-salt transition">Nano reef starter kit</h3>
+        <p class="text-sm text-foam/60 mb-4">The tiny tank people actually stick with. Everything you need, nothing you don't.</p>
+        <span class="inline-flex items-center gap-1 text-salt font-semibold text-sm">See on Amazon →</span>
+      </a>
+
+      <!-- Card 5: Wallpapers (own product) -->
+      <a href="REPLACE_GUMROAD_WALLPAPERS_URL" target="_blank" rel="noopener"
+         data-ph-evt="pick_click" data-ph-label="wallpapers"
+         class="card-hover group rounded-2xl bg-gradient-to-br from-reef/40 to-kelp/20 border border-salt/30 p-5 block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip text-[11px] px-2 py-0.5 rounded-full bg-salt/20">our thing · $3</span>
+          <span class="text-xs text-foam/50">#5</span>
+        </div>
+        <div class="text-5xl mb-3">📱</div>
+        <h3 class="text-display font-semibold text-lg mb-1 group-hover:text-salt transition">30 ocean wallpapers</h3>
+        <p class="text-sm text-foam/60 mb-4">Real GoPro stills from our dive catalog. 4K. $3 once, yours forever.</p>
+        <span class="inline-flex items-center gap-1 text-salt font-semibold text-sm">Get the pack →</span>
+      </a>
+
+      <!-- Card 6: Dive travel (PADI) -->
+      <a href="REPLACE_PADI_TRAVEL_URL" target="_blank" rel="noopener sponsored"
+         data-ph-evt="pick_click" data-ph-label="padi_travel"
+         class="card-hover group rounded-2xl bg-reef/20 border border-foam/10 p-5 block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip text-[11px] px-2 py-0.5 rounded-full">travel</span>
+          <span class="text-xs text-foam/50">#6</span>
+        </div>
+        <div class="text-5xl mb-3">🏝️</div>
+        <h3 class="text-display font-semibold text-lg mb-1 group-hover:text-salt transition">Actually go dive somewhere</h3>
+        <p class="text-sm text-foam/60 mb-4">PADI-certified dive trips from Bali to Belize. Book a real one, not just dream.</p>
+        <span class="inline-flex items-center gap-1 text-salt font-semibold text-sm">Explore trips →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- EZOIC / DISPLAY AD SLOT (fill after approval) -->
+<section class="max-w-3xl mx-auto px-5">
+  <div id="ezoic-placeholder-1" class="min-h-[90px] border border-dashed border-foam/10 rounded-xl flex items-center justify-center text-foam/30 text-xs">
+    <!-- Replace this div with Ezoic/AdSense ad code after approval -->
+    ad slot
+  </div>
+</section>
+
+<!-- 10 WEIRDEST FACTS -->
+<section id="facts" class="relative">
+  <div class="max-w-3xl mx-auto px-5 py-14 sm:py-20">
+    <p class="text-xs uppercase tracking-widest text-salt/80 mb-2">the list</p>
+    <h2 class="text-display text-3xl sm:text-4xl font-bold mb-10">10 ocean facts that broke my brain.</h2>
+
+    <ol class="space-y-8">
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">01</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Octopuses have three hearts and blue blood.</h3>
+          <p class="text-foam/60">Two pump blood to the gills. One pumps to the body. And copper-based blood runs blue, not red.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">02</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Sharks existed before trees.</h3>
+          <p class="text-foam/60">Sharks have been in the ocean for 450 million years. Trees are only 390 million. Sharks predate Saturn's rings.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">03</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Jellyfish have no brain, no heart, no blood, no bones.</h3>
+          <p class="text-foam/60">They're 95% water. They've been doing this for 500 million years. Most animals are, by every metric, less.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">04</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Starfish eat with their stomach outside their body.</h3>
+          <p class="text-foam/60">They extrude their stomach, wrap it around prey, digest externally, then retract. Casually.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">05</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Sea urchins chew rock with five teeth.</h3>
+          <p class="text-foam/60">Aristotle described the jaw in 350 BC. We still call it "Aristotle's Lantern." It grinds through stone.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">06</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Stingrays can detect your heartbeat.</h3>
+          <p class="text-foam/60">Electroreceptors called ampullae of Lorenzini sense the electric field of every heartbeat around them.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">07</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Sea anemones are predators that look like flowers.</h3>
+          <p class="text-foam/60">Those "petals" are stinging tentacles. They paralyze fish with neurotoxins and drag them in.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">08</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Sea sponges are animals.</h3>
+          <p class="text-foam/60">No brain, no nerves, no muscles. They filter 24 hours a day. The bath sponge came from one of these.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">09</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Sea turtles breathe air, like you.</h3>
+          <p class="text-foam/60">They hold their breath 4-7 hours while sleeping. Not fish. Reptiles. Older than dinosaurs.</p>
+        </div>
+      </li>
+      <li class="flex gap-5">
+        <span class="fact-num text-4xl sm:text-5xl text-salt shrink-0 w-12">10</span>
+        <div>
+          <h3 class="text-display font-semibold text-lg mb-1">Lionfish have no natural predators where they invade.</h3>
+          <p class="text-foam/60">Beautiful. Venomous. Eating the Caribbean. They're the only fish US agencies encourage you to hunt.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- SECONDARY EMAIL -->
+<section class="bg-gradient-to-b from-reef/20 to-abyss">
+  <div class="max-w-2xl mx-auto px-5 py-14 text-center">
+    <p class="text-xs uppercase tracking-widest text-salt/80 mb-2">stay salty</p>
+    <h2 class="text-display text-3xl sm:text-4xl font-bold mb-3">One weird fact. Every Sunday.</h2>
+    <p class="text-foam/60 mb-6">Nothing else. No promos. No sponsor spam. Just the ocean being unhinged.</p>
+    <form
+      id="email-bottom"
+      action="https://formspree.io/f/REPLACE_ME"
+      method="POST"
+      class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
+      onsubmit="posthog.capture('email_submit', { location: 'bottom' })">
+      <input type="email" name="email" required placeholder="you@domain.com"
+             class="flex-1 rounded-lg bg-abyss border border-foam/20 text-foam px-3 py-3 placeholder:text-foam/40 focus:outline-none focus:border-salt" />
+      <button type="submit" class="rounded-lg bg-salt text-abyss font-semibold px-5 py-3 hover:bg-yellow-300 transition">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-foam/10">
+  <div class="max-w-5xl mx-auto px-5 py-10 text-sm text-foam/50">
+    <div class="flex flex-col sm:flex-row sm:justify-between gap-6">
+      <div>
+        <p class="text-display text-foam font-semibold mb-1">Salty Facts</p>
+        <p class="text-foam/50 max-w-md">Curated picks and weird facts for people obsessed with the ocean. Some links on this site are affiliate links. We only link to things we'd actually use.</p>
+      </div>
+      <div class="flex gap-6 text-foam/60">
+        <a href="/privacy.html" class="hover:text-salt">Privacy</a>
+        <a href="/disclosure.html" class="hover:text-salt">Affiliate disclosure</a>
+        <a href="mailto:hello@saltyfacts.com" class="hover:text-salt">Contact</a>
+      </div>
+    </div>
+    <p class="mt-8 text-xs text-foam/30">© <span id="y"></span> Salty Facts. As an Amazon Associate we earn from qualifying purchases.</p>
+  </div>
+</footer>
+
+<script>
+  // Year stamp
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // PostHog: capture outbound clicks with labels
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a[data-ph-evt]');
+    if (!a) return;
+    const evt = a.getAttribute('data-ph-evt');
+    const label = a.getAttribute('data-ph-label') || '';
+    const href = a.getAttribute('href') || '';
+    try { posthog.capture(evt, { label, href }); } catch (_) {}
+  });
+
+  // UTM / source capture for shorts traffic attribution
+  const params = new URLSearchParams(location.search);
+  const src = params.get('utm_source') || params.get('src');
+  if (src) {
+    try { posthog.register({ traffic_source: src }); posthog.capture('landed', { traffic_source: src }); } catch (_) {}
+  }
+</script>
+
+</body>
+</html>
