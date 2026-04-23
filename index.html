@@ -117,14 +117,13 @@ posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
     </div>
     <form
       id="email-top"
-      action="https://formspree.io/f/REPLACE_ME"
-      method="POST"
-      class="flex gap-2 min-w-0 sm:min-w-[320px]"
-      onsubmit="posthog.capture('email_submit', { location: 'top' })">
+      data-location="top"
+      class="flex gap-2 min-w-0 sm:min-w-[320px] salty-email-form">
       <input type="email" name="email" required placeholder="you@domain.com"
              class="flex-1 min-w-0 rounded-lg bg-abyss border border-foam/20 text-foam px-3 py-2.5 placeholder:text-foam/40 focus:outline-none focus:border-salt" />
       <button type="submit" class="rounded-lg bg-salt text-abyss font-semibold px-4 py-2.5 hover:bg-yellow-300 transition whitespace-nowrap">Get it</button>
     </form>
+    <p id="email-top-msg" class="text-sm text-salt mt-2 hidden"></p>
   </div>
 </section>
 
@@ -326,14 +325,13 @@ posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
     <p class="text-foam/60 mb-6">Nothing else. No promos. No sponsor spam. Just the ocean being unhinged.</p>
     <form
       id="email-bottom"
-      action="https://formspree.io/f/REPLACE_ME"
-      method="POST"
-      class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
-      onsubmit="posthog.capture('email_submit', { location: 'bottom' })">
+      data-location="bottom"
+      class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto salty-email-form">
       <input type="email" name="email" required placeholder="you@domain.com"
              class="flex-1 rounded-lg bg-abyss border border-foam/20 text-foam px-3 py-3 placeholder:text-foam/40 focus:outline-none focus:border-salt" />
       <button type="submit" class="rounded-lg bg-salt text-abyss font-semibold px-5 py-3 hover:bg-yellow-300 transition">Subscribe</button>
     </form>
+    <p id="email-bottom-msg" class="text-sm text-salt mt-3 hidden"></p>
   </div>
 </section>
 
@@ -375,6 +373,45 @@ posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
   if (src) {
     try { posthog.register({ traffic_source: src }); posthog.capture('landed', { traffic_source: src }); } catch (_) {}
   }
+
+  // Email capture → Vercel fn → Loops
+  document.querySelectorAll('form.salty-email-form').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const location = form.dataset.location || 'unknown';
+      const msg = document.getElementById(form.id + '-msg');
+      const btn = form.querySelector('button');
+      if (!email || !email.includes('@')) return;
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = '...';
+
+      try { posthog.capture('email_submit', { location }); } catch (_) {}
+
+      try {
+        const resp = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = await resp.json();
+        if (data.success) {
+          form.reset();
+          if (msg) { msg.textContent = 'In. Watch your inbox Sunday.'; msg.classList.remove('hidden'); }
+          try { posthog.capture('email_success', { location }); } catch (_) {}
+        } else {
+          if (msg) { msg.textContent = 'Something went wrong — try again?'; msg.classList.remove('hidden'); }
+        }
+      } catch (_) {
+        if (msg) { msg.textContent = 'Network error — try again?'; msg.classList.remove('hidden'); }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  });
 </script>
 
 </body>
