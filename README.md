@@ -63,3 +63,9 @@ PostHog will register `traffic_source` and attribute downstream clicks + email s
 3. Sign up for affiliate accounts in priority order: Temu (fastest), Amazon Associates (most trusted), OGAds (for game offer), PADI (travel)
 4. First week: watch PostHog. Track CTR by platform + which cards get clicked
 5. Week 2: rotate underperforming cards, add/cut based on data
+
+## Related links
+
+- [MeetKai](https://meetkai.xyz) — the operator layer behind Kai CMO workflows.
+- [KaiCalls](https://kaicalls.com) — AI voice agents for small-business phone answering and lead capture.
+- [Connor Gallic](https://connorgallic.com) — founder building Kai, KaiCalls, and AI automation systems.
