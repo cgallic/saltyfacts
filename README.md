@@ -17,27 +17,17 @@ Or via Vercel dashboard:
 4. Deploy
 5. Add custom domain `saltyfacts.com` in Settings → Domains
 
-## Placeholders to fill (search + replace in `index.html`)
+## Placeholders
 
-| Placeholder | Replace with |
-|---|---|
-| `REPLACE_OGADS_SHARK_GAME_URL` | Your OGAds offer tracking URL for an ocean/shark mobile game |
-| `REPLACE_AMAZON_OCTOPUS_BOOK_URL` | Amazon Associates link for "Other Minds" by Peter Godfrey-Smith (wrap via Geniuslink for geo-routing) |
-| `REPLACE_TEMU_REFERRAL_URL` | Your Temu referral URL |
-| `REPLACE_AMAZON_AQUARIUM_KIT_URL` | Amazon Associates link for a nano-reef aquarium kit (via Geniuslink) |
-| `REPLACE_GUMROAD_WALLPAPERS_URL` | Gumroad product URL for your ocean wallpaper pack (create later) |
-| `REPLACE_PADI_TRAVEL_URL` | PADI Travel affiliate URL |
-| `REPLACE_ME` (x2) | Formspree form ID for email capture — OR swap form action to ConvertKit/Beehiiv embed URL |
-| `ezoic-placeholder-1` | Ezoic/AdSense ad code after approval |
+The old affiliate placeholder tokens and dead affiliate links were removed from the site. The affiliate program is not approved, so there are no affiliate links to fill in. The only remaining placeholder is the `ezoic-placeholder-1` ad slot in `index.html`.
 
-## Affiliate accounts to create
+## Content pages
 
-1. **Amazon Associates** — apply at https://affiliate-program.amazon.com. Use Geniuslink (https://geniuslink.com) to auto-route Indian/SEA/US traffic to the right Amazon store.
-2. **Temu** — affiliate program at https://www.temu.com/affiliate
-3. **PADI Travel** — https://pros-blog.padi.com/going-global-padi-travel-affiliate-program/
-4. **OGAds** — https://ogads.com (sign up, pick ocean/shark game offer, grab tracking URL)
-5. **Ezoic** — apply after you have 1K+ sessions/month OR use AdSense immediately if already approved
-6. **Formspree** (or ConvertKit/Beehiiv) — for email capture. Free tier works for first 50 subs/mo
+- `/why-is-the-ocean-salty`
+- `/deepest-point-in-the-ocean`
+- `/ocean-bioluminescence`
+
+Every figure on these pages links to its source (NOAA, USGS, or peer-reviewed research). Add each new page to `sitemap.xml`.
 
 ## Analytics
 
