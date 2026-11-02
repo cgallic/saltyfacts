@@ -83,8 +83,9 @@
   }
   load('https://snap.licdn.com/li.lms-analytics/insight.min.js');
 
-  // Mark leads so they can be excluded from (or targeted by) audiences.
-  d.addEventListener('submit', function () {
+  // Count only a subscription acknowledged by the application.
+  d.addEventListener('kc:lead-received', function (event) {
+    if (!event.detail || typeof event.detail.form_id !== 'string' || !event.detail.form_id) return;
     try {
       w.fbq('track', 'Lead');
       w.ttq.track('SubmitForm');

@@ -315,12 +315,14 @@ posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
   document.querySelectorAll('form.salty-email-form').forEach((form) => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (form.dataset.pending === 'true') return;
       const email = form.querySelector('input[name="email"]').value.trim();
       const location = form.dataset.location || 'unknown';
       const msg = document.getElementById(form.id + '-msg');
       const btn = form.querySelector('button');
       if (!email || !email.includes('@')) return;
 
+      form.dataset.pending = 'true';
       btn.disabled = true;
       const originalText = btn.textContent;
       btn.textContent = '...';
@@ -334,7 +336,8 @@ posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
           body: JSON.stringify({ email }),
         });
         const data = await resp.json();
-        if (data.success) {
+        if (resp.ok && data.success === true) {
+          form.dispatchEvent(new CustomEvent('kc:lead-received', { bubbles: true, detail: { form_id: form.id } }));
           form.reset();
           if (msg) { msg.textContent = 'In. Watch your inbox Sunday.'; msg.classList.remove('hidden'); }
           try { posthog.capture('email_success', { location }); } catch (_) {}
@@ -344,6 +347,7 @@ posthog.init('phc_CQUw855e7D8h5bc7WauFxEr7i5sgHS6ssjk8kMTmqyZk', {
       } catch (_) {
         if (msg) { msg.textContent = 'Network error — try again?'; msg.classList.remove('hidden'); }
       } finally {
+        delete form.dataset.pending;
         btn.disabled = false;
         btn.textContent = originalText;
       }

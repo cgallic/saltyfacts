@@ -1,0 +1,15 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
+const source=scripts.find(s=>s.includes("document.querySelectorAll('form.salty-email-form')"));assert.ok(source);
+function setup(response){
+ const messages={},forms=[],events=[];let calls=0;
+ for(const id of ['email-top','email-bottom']){const input={value:'qa@example.invalid'},button={disabled:false,textContent:'Subscribe'};const form={id,dataset:{location:id},input,button,resets:0,handlers:{},addEventListener(n,f){this.handlers[n]=f},querySelector(s){return s==='button'?button:input},reset(){this.resets++;input.value=''},dispatchEvent(e){events.push({type:e.type,detail:e.detail,bubbles:e.bubbles})}};forms.push(form);messages[id+'-msg']={textContent:'',classList:{remove(){}}}}
+ const document={getElementById(id){return messages[id]||{}},addEventListener(){},querySelectorAll(){return forms}};
+ const context={document,posthog:{capture(){},register(){}},location:{search:''},URLSearchParams,Date,CustomEvent:class{constructor(type,options){this.type=type;Object.assign(this,options)}},fetch:async()=>{calls++;if(response instanceof Error)throw response;return typeof response==='function'?response():response}};
+ vm.runInNewContext(source,context);return {forms,messages,events,calls:()=>calls};
+}
+const submit=f=>f.handlers.submit({preventDefault(){}});
+for(const [label,response] of [['HTTP failure with success body',{ok:false,json:async()=>({success:true})}],['application rejection',{ok:true,json:async()=>({success:false})}],['missing acknowledgement',{ok:true,json:async()=>({})}],['network failure',new Error('network')]])test(label+' retains input and emits no receipt',async()=>{const s=setup(response);for(const f of s.forms){await submit(f);assert.equal(f.input.value,'qa@example.invalid');assert.equal(f.resets,0);assert.equal(f.button.disabled,false);assert.ok(s.messages[f.id+'-msg'].textContent)}assert.equal(s.events.length,0)});
+test('both forms emit one non-private receipt only after success',async()=>{const s=setup({ok:true,json:async()=>({success:true})});for(const f of s.forms){await submit(f);assert.equal(f.resets,1);assert.equal(f.input.value,'');assert.equal(f.button.disabled,false)}assert.equal(s.events.length,2);for(let i=0;i<2;i++){assert.equal(s.events[i].type,'kc:lead-received');assert.equal(JSON.stringify(s.events[i].detail),JSON.stringify({form_id:s.forms[i].id}));assert.equal(s.events[i].bubbles,true)}});
+test('pending submit guard prevents duplicate requests',async()=>{let release;const response=new Promise(resolve=>release=resolve);const s=setup(()=>response);const first=submit(s.forms[0]);await submit(s.forms[0]);assert.equal(s.calls(),1);release({ok:true,json:async()=>({success:true})});await first;assert.equal(s.events.length,1);assert.equal(s.forms[0].dataset.pending,undefined)});
